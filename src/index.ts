@@ -22,6 +22,10 @@ const watcher = new Watcher(file);
 
 watcher.start();
 
+app.get('/', (req, res) => {
+  res.send({ message: 'Welcome' });
+});
+
 app.get('/log', (req, res) => {
   let counter = 1;
 
