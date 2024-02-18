@@ -16,7 +16,7 @@ const server = http.createServer(app);
 
 const io = new SocketIOServer(server);
 
-const filePath = 'logfile.log';
+const filePath = 'src/logfile.log';
 
 // Check if the file exists
 const fileExists = fs.existsSync(filePath);

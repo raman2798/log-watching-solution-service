@@ -9,7 +9,7 @@
     "npm": "10.2.4"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && cp src/index.html dist/",
     "start": "node --inspect dist/index.js",
     "prestart": "npm run build",
     "start:dev": "nodemon --watch '*.ts' --exec 'ts-node' ./src/index.ts",
