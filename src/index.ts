@@ -16,16 +16,14 @@ const server = http.createServer(app);
 
 const io = new SocketIOServer(server);
 
-
 const filePath = 'logfile.log';
 
 // Check if the file exists
 const fileExists = fs.existsSync(filePath);
 
 if (!fileExists) {
-    fs.writeFileSync(filePath, '', 'utf8');
+  fs.writeFileSync(filePath, '', 'utf8');
 }
-
 
 const watcher = new Watcher(filePath);
 
