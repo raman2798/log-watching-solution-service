@@ -43,10 +43,5 @@ npm run start
 ```
 src/
  |--config/             # Environment variables and configuration related things
- |--controllers/        # Route controllers (controller layer)
- |--interfaces/         # Interfaces
- |--middlewares/        # Middlewares
- |--routes/             # Routes
- |--utils/              # All types of utils
  |--index.ts            # App entry point
 ```
