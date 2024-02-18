@@ -9,8 +9,9 @@
     "npm": "10.2.4"
   },
   "scripts": {
-    "build": "tsc node --inspect dist/index.js",
-    "start": "tsc node --inspect dist/index.js",
+    "build": "tsc",
+    "start": "node --inspect dist/index.js",
+    "prestart": "npm run build",
     "start:dev": "nodemon --watch '*.ts' --exec 'ts-node' ./src/index.ts",
     "start:dev:win": "nodemon --exec npx ts-node ./src/index.ts",
     "lint": "eslint .",
