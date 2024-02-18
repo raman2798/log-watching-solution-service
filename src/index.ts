@@ -16,9 +16,18 @@ const server = http.createServer(app);
 
 const io = new SocketIOServer(server);
 
-const file = 'logfile.log';
 
-const watcher = new Watcher(file);
+const filePath = 'logfile.log';
+
+// Check if the file exists
+const fileExists = fs.existsSync(filePath);
+
+if (!fileExists) {
+    fs.writeFileSync(filePath, '', 'utf8');
+}
+
+
+const watcher = new Watcher(filePath);
 
 watcher.start();
 
@@ -29,14 +38,14 @@ app.get('/', (req, res) => {
 app.get('/log', (req, res) => {
   let counter = 1;
 
-  fs.appendFile(file, `${Date.now()} : ${counter.toString()}`, (err) => {
+  fs.appendFile(filePath, `${Date.now()} : ${counter.toString()}`, (err) => {
     if (err) throw err;
   });
 
   counter++;
 
   setInterval(() => {
-    fs.appendFile(file, `\n${Date.now()}: ${counter}`, (err) => {
+    fs.appendFile(filePath, `\n${Date.now()}: ${counter}`, (err) => {
       if (err) loggerConfiguration.error('Error', err);
     });
 
